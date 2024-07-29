@@ -1,0 +1,31 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Requests\Api\v1_0;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+final class RantStoreRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     */
+    public function rules(): array
+    {
+        return [
+            'positive' => 'required|integer',
+            'negative' => 'required|integer',
+            'rant' => 'required|string',
+            'tags' => 'nullable|string',       
+         ];
+    }
+}
